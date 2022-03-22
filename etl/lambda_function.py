@@ -30,10 +30,10 @@ def handler(event, context):
                             'InstanceCount': 1,
                         }
                     ],
-                    'Ec2KeyName': 'ney-igti-teste',
+                    'Ec2KeyName': 'sandro-igti-teste',
                     'KeepJobFlowAliveWhenNoSteps': True,
                     'TerminationProtected': False,
-                    'Ec2SubnetId': 'subnet-1df20360'
+                    'Ec2SubnetId': 'subnet-03abc98461558898b'
                 },
 
                 Applications=[
@@ -91,7 +91,7 @@ def handler(event, context):
                                  '--packages', 'io.delta:delta-core_2.12:1.0.0', 
                                  '--conf', 'spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension', 
                                  '--conf', 'spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog', 
-                                 '--master', 'yarn',
+                                 '--main', 'yarn',
                                  '--deploy-mode', 'cluster',
                                  's3://datalake-sandro-igti-edc-tf/emr-code/pyspark/01_delta_spark_insert.py'
                                  ]
@@ -106,7 +106,7 @@ def handler(event, context):
                                  '--packages', 'io.delta:delta-core_2.12:1.0.0', 
                                  '--conf', 'spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension', 
                                  '--conf', 'spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog', 
-                                 '--master', 'yarn',
+                                 '--main', 'yarn',
                                  '--deploy-mode', 'cluster',
                                  's3:///datalake-sandro-igti-edc-tf/emr-code/pyspark/02_delta_spark_upsert.py'
                                  ]
