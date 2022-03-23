@@ -36,5 +36,5 @@ resource "aws_iam_role" "firehose_role" {
     }
   ]
 }
-EOF
+
 }
